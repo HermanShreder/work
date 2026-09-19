@@ -1,6 +1,6 @@
-name = "tg-lander"
+name = "work"
 compatibility_date = "2024-09-19"
 
 [assets]
-directory = "."
+directory = "src"
 binding = "ASSETS"
