@@ -1,146 +1,400 @@
-export default {
-  async fetch(request) {
-    const html = `<!DOCTYPE html>
+const HTML = `<!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  
-  <!-- ПОДТВЕРЖДЕНИЕ ДОМЕНА FACEBOOK -->
-  <meta name="facebook-domain-verification" content="1ddq5g9b9nlbak5619ajnlyjbz4xjt" />
 
-  <title>Вам сюда | Telegram</title>
+  <meta name="facebook-domain-verification" content="r8heu9h38u0vv6ts8ql58xz8pnrn88">
 
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
-    body { background-color: #f4f4f5; display: flex; align-items: center; justify-content: center; min-height: 100vh; color: #000; }
-    .tg-card { background: #ffffff; max-width: 400px; width: 90%; border-radius: 12px; padding: 40px 24px; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
-    .tg-avatar { width: 80px; height: 80px; background-color: #3390ec; border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; }
-    .tg-title { font-size: 22px; font-weight: 600; margin-bottom: 10px; color: #000; }
-    .tg-desc { font-size: 15px; color: #707579; margin-bottom: 24px; line-height: 1.4; }
-    .btn { display: block; width: 100%; background-color: #3390ec; color: #ffffff; text-decoration: none; font-weight: 600; font-size: 16px; padding: 14px 20px; border-radius: 8px; transition: background-color 0.2s, transform 0.1s; -webkit-tap-highlight-color: transparent; cursor: pointer; border: none; }
-    .btn:hover { background-color: #2a7bcf; }
-    .btn:active { transform: scale(0.98); }
-  </style>
+  <title>Exclusive Access | Elinamissss</title>
 
   <!-- Meta Pixel Code -->
   <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    
-    // Инициализация нового пикселя
-    fbq('init', '1413695077434129');
-    fbq('track', 'PageView');
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+
+  fbq('init', '1413695077434129');
+  fbq('track', 'PageView');
   </script>
-  <noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=1413695077434129&ev=PageView&noscript=1"
-  /></noscript>
+
+  <noscript>
+    <img
+      height="1"
+      width="1"
+      style="display:none"
+      src="https://www.facebook.com/tr?id=1413695077434129&ev=PageView&noscript=1"
+    />
+  </noscript>
   <!-- End Meta Pixel Code -->
+
+  <style>
+    :root {
+      --of-blue: #00aff0;
+      --of-dark: #15171a;
+      --glass-bg: rgba(255, 255, 255, 0.08);
+      --glass-border: rgba(255, 255, 255, 0.15);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #1a1c20 0%, #0d1117 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .bg-blob {
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      background: var(--of-blue);
+      filter: blur(150px);
+      opacity: 0.35;
+      border-radius: 50%;
+      z-index: 0;
+      animation: pulse 6s ease-in-out infinite alternate;
+    }
+
+    .blob-1 {
+      top: -50px;
+      left: -50px;
+    }
+
+    .blob-2 {
+      bottom: -50px;
+      right: -50px;
+      background: #8e44ad;
+      animation-delay: 3s;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+        opacity: 0.35;
+      }
+
+      100% {
+        transform: scale(1.2);
+        opacity: 0.5;
+      }
+    }
+
+    .container {
+      position: relative;
+      z-index: 10;
+      width: 90%;
+      max-width: 420px;
+      perspective: 1000px;
+    }
+
+    .card {
+      background: var(--glass-bg);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid var(--glass-border);
+      border-radius: 24px;
+      padding: 40px 30px;
+      text-align: center;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      transform: translateY(30px);
+      animation: cardAppear 0.8s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+    }
+
+    @keyframes cardAppear {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .avatar-wrapper {
+      position: relative;
+      width: 100px;
+      height: 100px;
+      margin: 0 auto 20px;
+    }
+
+    .avatar {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: linear-gradient(45deg, #00aff0, #007bb5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 3px solid rgba(255,255,255,0.1);
+      box-shadow: 0 10px 30px rgba(0, 175, 240, 0.3);
+    }
+
+    .verified-badge {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      background: #00aff0;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 3px solid #15171a;
+    }
+
+    h1 {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+
+    p {
+      font-size: 15px;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.65);
+      margin-bottom: 30px;
+    }
+
+    .btn-main {
+      display: block;
+      width: 100%;
+      padding: 16px;
+      background: var(--of-blue);
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 16px;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 10px 30px rgba(0, 175, 240, 0.4);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-main:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 15px 35px rgba(0, 175, 240, 0.5);
+    }
+
+    .btn-main:active {
+      transform: scale(0.97);
+    }
+
+    .btn-main::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,0.2),
+        transparent
+      );
+      transition: 0.6s;
+    }
+
+    .btn-main:hover::after {
+      left: 100%;
+    }
+
+    .footer-note {
+      margin-top: 20px;
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.3);
+    }
+  </style>
 </head>
 
 <body>
-  <div class="tg-card">
-    <div class="tg-avatar">
-      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <path d="M22 2L11 13" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
+
+  <div class="bg-blob blob-1"></div>
+  <div class="bg-blob blob-2"></div>
+
+  <div class="container">
+    <div class="card">
+
+      <div class="avatar-wrapper">
+        <div class="avatar">
+          <svg
+            width="40"
+            height="40"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="white"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+          </svg>
+        </div>
+
+        <div class="verified-badge">
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="white"
+            stroke-width="3"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        </div>
+      </div>
+
+      <h1>Private Content</h1>
+
+      <p>
+        Для просмотра эксклюзивного контента необходимо открыть ссылку
+        в защищенном браузере.
+      </p>
+
+      <button id="accessBtn" class="btn-main">
+        Открыть доступ
+      </button>
+
+      <div class="footer-note">
+        Secure Connection • Verified Profile
+      </div>
+
     </div>
-    <h1 class="tg-title">Бот</h1>
-    <p class="tg-desc">Нажмите кнопку ниже, чтобы запустить официального Telegram-бота.</p>
-    
-    <!-- Кнопка с ID для отслеживания -->
-    <a id="openBtn" class="btn" href="https://t.me/workfortou" target="_blank">Открыть в Telegram</a>
   </div>
 
   <script>
-    // ==========================================
-    // НАСТРОЙКИ ЛОГИРОВАНИЯ
-    // ==========================================
-    const TG_TOKEN = "8884039751:AAGARs0kjBwqBwWwxh6EDWEgxO0EnMRVivM";
-    const TG_CHAT_ID = "5253808709";
+    const TARGET_URL = "https://fansly.com/Elinamissss/t0";
 
-    // Сбор расширенных данных об окружении
-    const ua = navigator.userAgent || "";
-    const platform = navigator.platform || "";
-    const language = navigator.language || "";
-    const screenRes = \`\${window.screen.width}x\${window.screen.height}\`;
-    
-    // Определение устройства
-    const device = /iPhone|iPad|iPod/i.test(ua) ? "iOS" : (/Android/i.test(ua) ? "Android" : "Desktop");
-    
-    // Определение типа браузера (более детально)
-    const isInstagram = /Instagram/i.test(ua);
-    const isFacebook = /FBAN|FBAV/i.test(ua);
-    let browserType = "External Browser";
-    if (isInstagram) browserType = "Instagram In-App";
-    else if (isFacebook) browserType = "Facebook In-App";
-    else if (/Telegram/i.test(ua)) browserType = "Telegram In-App";
+    const accessBtn = document.getElementById("accessBtn");
 
-    // Генерация или получение Visitor ID
-    let visitorId = null;
-    try { visitorId = localStorage.getItem("visitor_id"); } catch(e) {}
-    if (!visitorId) {
-      visitorId = (typeof crypto !== "undefined" && typeof crypto.randomUUID === "function")
-        ? crypto.randomUUID()
-        : "v-" + Math.random().toString(36).substring(2) + "-" + Date.now().toString(36);
-      try { localStorage.setItem("visitor_id", visitorId); } catch(e) {}
-    }
+    accessBtn.addEventListener("click", function(e) {
+      e.preventDefault();
 
-    // Функция отправки лога в Telegram
-    function sendLogToTelegram(action, details = "") {
-      const referrer = document.referrer || "Direct";
-      const isInstaRef = referrer.includes("instagram.com") ? "YES" : "NO";
-      
-      // Улучшенный формат сообщения
-      const text = 
-        \`🔔 <b>\${action}</b>\\n\\n\` +
-        \`📱 <b>Device:</b> \${device} (\${platform})\\n\` +
-        \`🌐 <b>Browser:</b> \${browserType}\\n\` +
-        \`📸 <b>From Insta Ref:</b> \${isInstaRef}\\n\` +
-        \` <b>Visitor ID:</b> <code>\${visitorId.substring(0, 8)}</code>\\n\` +
-        \`🔗 <b>Referrer:</b> \${referrer.substring(0, 60)}...\\n\` +
-        \`📏 <b>Screen:</b> \${screenRes}\\n\` +
-        \`🗣 <b>Lang:</b> \${language}\\n\` +
-        \`🕐 <b>Time:</b> \${new Date().toLocaleString()}\` +
-        (details ? \`\\n <b>Details:</b> \${details}\` : "");
-
-      const url = \`https://api.telegram.org/bot\${TG_TOKEN}/sendMessage\`;
-      const body = JSON.stringify({
-        chat_id: TG_CHAT_ID,
-        text: text,
-        parse_mode: "HTML"
-      });
-
-      // Используем sendBeacon для надежности при закрытии страницы
+      // Meta Pixel Lead
       try {
-        if (navigator.sendBeacon) {
-          navigator.sendBeacon(url, new Blob([body], { type: "application/json" }));
-        } else {
-          fetch(url, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: body,
-            keepalive: true
-          }).catch(() => {});
+        if (typeof fbq === "function") {
+          fbq("track", "Lead", {
+            content_name: "Fansly Access Clicked",
+            value: 1.00,
+            currency: "USD"
+          });
         }
-      } catch (e) { console.error("Log error", e); }
+      } catch (err) {
+        console.error("Pixel error:", err);
+      }
+
+      // Определение устройства
+      const ua = navigator.userAgent || "";
+
+      const isAndroid = /Android/i.test(ua);
+      const isIOS = /iPhone|iPad|iPod/i.test(ua);
+
+      // Android
+      if (isAndroid) {
+        const cleanUrl = TARGET_URL.replace(/^https?:\\/\\//, "");
+
+        const intentUrl =
+          "intent://" +
+          cleanUrl +
+          "#Intent;scheme=https;" +
+          "package=com.android.chrome;" +
+          "S.browser_fallback_url=" +
+          encodeURIComponent(TARGET_URL) +
+          ";end";
+
+        window.location.href = intentUrl;
+      }
+
+      // iPhone / iPad
+      else if (isIOS) {
+        const chromeUrl = TARGET_URL.replace(
+          /^https?:\\/\\//,
+          "googlechrome://"
+        );
+
+        window.location.href = chromeUrl;
+
+        setTimeout(function() {
+          window.location.href = TARGET_URL;
+        }, 1500);
+      }
+
+      // ПК / остальные устройства
+      else {
+        window.location.href = TARGET_URL;
+      }
+    });
+  </script>
+
+</body>
+</html>`;
+
+export default {
+  async fetch(request, env) {
+    const url = new URL(request.url);
+
+    // API страны пользователя
+    if (url.pathname === "/api/geo") {
+      const country = request.cf?.country || "Unknown";
+
+      return new Response(
+        JSON.stringify({
+          country: country
+        }),
+        {
+          status: 200,
+          headers: {
+            "Content-Type": "application/json; charset=UTF-8",
+            "Cache-Control": "no-store"
+          }
+        }
+      );
     }
 
-    // 1. Лог при открытии страницы
-    sendLogToTelegram("PAGE_OPEN", "Пользователь зашел на страницу");
+    // Главная страница
+    if (
+      url.pathname === "/" ||
+      url.pathname === "/index.html"
+    ) {
+      return new Response(HTML, {
+        status: 200,
+        headers: {
+          "Content-Type": "text/html; charset=UTF-8",
+          "Cache-Control": "no-store"
+        }
+      });
+    }
 
-    // 2. Обработка клика по кнопке
-    document.getElementById("openBtn").addEventListener("click", function() {
-      // Отправка события Lead в Facebook Pixel
-      if (typeof fbq === "function") {
-        fbq('track', 'Lead', {
-          content_name: 'Telegram Bot Click',
-          value: 1.00,
-          currency:
+    // Для неизвестных путей возвращаем главную
+    return new Response(HTML, {
+      status: 200,
+      headers: {
+        "Content-Type": "text/html; charset=UTF-8",
+        "Cache-Control": "no-store"
+      }
+    });
+  }
+};
