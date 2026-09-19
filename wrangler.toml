@@ -1,6 +1,6 @@
 name = "work"
-compatibility_date = "2024-09-19"
+compatibility_date = "2026-09-19"
+main = "src/index.js"
 
 [assets]
-directory = "src"
-binding = "ASSETS"
+directory = "public"
