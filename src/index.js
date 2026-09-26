@@ -7,7 +7,7 @@ const HTML = `<!DOCTYPE html>
   <!-- ПОДТВЕРЖДЕНИЕ ДОМЕНА FACEBOOK -->
   <meta name="facebook-domain-verification" content="1ddq5g9b9nlbak5619ajnlyjbz4xjt">
 
-  <title>Вам сюда | Telegram</title>
+  <title>Ба Telegram равед | Telegram</title>
 
   <style>
     * {
@@ -147,7 +147,7 @@ const HTML = `<!DOCTYPE html>
     <h1 class="tg-title">Бот</h1>
 
     <p class="tg-desc">
-      Нажмите кнопку ниже, чтобы запустить официального Telegram-бота.
+      Ба Telegram равед.
     </p>
 
     <a
