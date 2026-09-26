@@ -153,7 +153,7 @@ const HTML = `<!DOCTYPE html>
     <a
       id="openBtn"
       class="btn"
-      href="https://t.me/tgworkcv"
+      href="https://t.me/workfortou"
       target="_blank"
     >
       Открыть в Telegram
