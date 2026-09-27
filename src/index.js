@@ -1,101 +1,53 @@
-const HTML = `<!DOCTYPE html>
-<html lang="ru">
+export default {
+  async fetch(request, env, ctx) {
+    const html = `<!doctype html>
+<html lang="tg">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
-  <!-- ПОДТВЕРЖДЕНИЕ ДОМЕНА FACEBOOK -->
   <meta name="facebook-domain-verification" content="1ddq5g9b9nlbak5619ajnlyjbz4xjt">
 
-  <title>Ба Telegram равед | Telegram</title>
+  <title>Telegram Channel</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    }
+  <meta
+    name="description"
+    content="Telegram channel — пайваст шудан ба канал"
+  >
 
-    body {
-      background-color: #f4f4f5;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      color: #000;
-    }
+  <meta name="theme-color" content="#08090d">
+  <meta name="color-scheme" content="dark">
 
-    .tg-card {
-      background: #ffffff;
-      max-width: 400px;
-      width: 90%;
-      border-radius: 12px;
-      padding: 40px 24px;
-      text-align: center;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-    }
-
-    .tg-avatar {
-      width: 80px;
-      height: 80px;
-      background-color: #3390ec;
-      border-radius: 50%;
-      margin: 0 auto 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .tg-title {
-      font-size: 22px;
-      font-weight: 600;
-      margin-bottom: 10px;
-      color: #000;
-    }
-
-    .tg-desc {
-      font-size: 15px;
-      color: #707579;
-      margin-bottom: 24px;
-      line-height: 1.4;
-    }
-
-    .btn {
-      display: block;
-      width: 100%;
-      background-color: #3390ec;
-      color: #ffffff;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 16px;
-      padding: 14px 20px;
-      border-radius: 8px;
-      transition: background-color 0.2s, transform 0.1s;
-      -webkit-tap-highlight-color: transparent;
-      cursor: pointer;
-      border: none;
-    }
-
-    .btn:hover {
-      background-color: #2a7bcf;
-    }
-
-    .btn:active {
-      transform: scale(0.98);
-    }
-  </style>
-
-  <!-- Meta Pixel Code -->
+  <!-- Meta Pixel -->
   <script>
     !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
+    {
+      if(f.fbq)return;
+      n=f.fbq=function(){
+        n.callMethod ?
+        n.callMethod.apply(n,arguments) :
+        n.queue.push(arguments)
+      };
+
+      if(!f._fbq)f._fbq=n;
+
+      n.push=n;
+      n.loaded=!0;
+      n.version='2.0';
+      n.queue=[];
+
+      t=b.createElement(e);
+      t.async=!0;
+      t.src=v;
+
+      s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)
+    }(
+      window,
+      document,
+      'script',
+      'https://connect.facebook.net/en_US/fbevents.js'
+    );
 
     fbq('init', '1413695077434129');
     fbq('track', 'PageView');
@@ -106,377 +58,660 @@ const HTML = `<!DOCTYPE html>
       height="1"
       width="1"
       style="display:none"
+      alt=""
       src="https://www.facebook.com/tr?id=1413695077434129&ev=PageView&noscript=1"
-    />
+    >
   </noscript>
-  <!-- End Meta Pixel Code -->
 
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      width: 100%;
+      min-height: 100%;
+    }
+
+    body {
+      min-height: 100vh;
+      min-height: 100dvh;
+      overflow-x: hidden;
+
+      font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
+
+      background:
+        radial-gradient(
+          circle at 50% 10%,
+          rgba(42, 137, 255, .16),
+          transparent 34%
+        ),
+        radial-gradient(
+          circle at 10% 90%,
+          rgba(30, 136, 229, .10),
+          transparent 30%
+        ),
+        #08090d;
+
+      color: #fff;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+
+      background:
+        linear-gradient(
+          rgba(255,255,255,.025) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          90deg,
+          rgba(255,255,255,.025) 1px,
+          transparent 1px
+        );
+
+      background-size: 42px 42px;
+
+      mask-image: linear-gradient(
+        to bottom,
+        rgba(0,0,0,.9),
+        transparent
+      );
+    }
+
+    .page {
+      position: relative;
+      min-height: 100vh;
+      min-height: 100dvh;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      padding: 24px 16px;
+    }
+
+    .card {
+      position: relative;
+
+      width: 100%;
+      max-width: 430px;
+
+      padding: 42px 24px 30px;
+
+      text-align: center;
+
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 28px;
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(25,27,35,.97),
+          rgba(11,12,17,.99)
+        );
+
+      box-shadow:
+        0 30px 80px rgba(0,0,0,.55),
+        inset 0 1px 0 rgba(255,255,255,.05);
+
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+
+      position: absolute;
+
+      top: -160px;
+      left: 50%;
+
+      transform: translateX(-50%);
+
+      width: 330px;
+      height: 330px;
+
+      border-radius: 50%;
+
+      background: rgba(42,137,255,.16);
+
+      filter: blur(70px);
+
+      pointer-events: none;
+    }
+
+    .status {
+      position: relative;
+      z-index: 1;
+
+      display: inline-flex;
+      align-items: center;
+
+      gap: 7px;
+
+      margin-bottom: 22px;
+
+      padding: 7px 12px;
+
+      border-radius: 999px;
+
+      border: 1px solid rgba(42,137,255,.20);
+
+      background: rgba(42,137,255,.07);
+
+      color: #4da3ff;
+
+      font-size: 11px;
+      font-weight: 800;
+
+      letter-spacing: .10em;
+      text-transform: uppercase;
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+
+      border-radius: 50%;
+
+      background: #36a9ff;
+
+      box-shadow:
+        0 0 12px rgba(54,169,255,.8);
+
+      animation: pulse 1.8s infinite;
+    }
+
+    .coin-wrap {
+      position: relative;
+      z-index: 1;
+
+      width: 142px;
+      height: 142px;
+
+      margin: 0 auto 24px;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .coin-glow {
+      position: absolute;
+      inset: 4px;
+
+      border-radius: 50%;
+
+      background: rgba(42,137,255,.20);
+
+      filter: blur(25px);
+    }
+
+    .coin {
+      position: relative;
+
+      width: 118px;
+      height: 118px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 50%;
+
+      border: 7px solid #1687d9;
+
+      background:
+        radial-gradient(
+          circle at 35% 28%,
+          #ccecff 0%,
+          #6bc6ff 22%,
+          #229ee8 55%,
+          #0875b8 100%
+        );
+
+      color: #063c61;
+
+      font-size: 56px;
+      font-weight: 900;
+
+      box-shadow:
+        0 10px 35px rgba(25,150,230,.35),
+        inset 0 3px 4px rgba(255,255,255,.7),
+        inset 0 -8px 12px rgba(0,60,100,.28);
+
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .coin::after {
+      content: "";
+
+      position: absolute;
+      inset: 9px;
+
+      border-radius: 50%;
+
+      border: 2px solid rgba(6,60,97,.22);
+    }
+
+    .coin-symbol {
+      position: relative;
+      z-index: 2;
+
+      transform: translateY(-2px);
+
+      text-shadow:
+        0 2px 0 rgba(255,255,255,.22);
+    }
+
+    .brand {
+      position: relative;
+      z-index: 1;
+
+      margin-bottom: 8px;
+
+      font-size: 30px;
+      line-height: 1;
+
+      font-weight: 900;
+
+      letter-spacing: -.04em;
+    }
+
+    .brand span {
+      color: #3aa9ff;
+    }
+
+    .subtitle {
+      position: relative;
+      z-index: 1;
+
+      color: #969aa6;
+
+      font-size: 14px;
+      line-height: 1.5;
+
+      margin-bottom: 24px;
+    }
+
+    .stats {
+      position: relative;
+      z-index: 1;
+
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+
+      gap: 10px;
+
+      margin-bottom: 22px;
+    }
+
+    .stat {
+      padding: 13px 10px;
+
+      border-radius: 14px;
+
+      border: 1px solid rgba(255,255,255,.06);
+
+      background: rgba(255,255,255,.025);
+    }
+
+    .stat-value {
+      display: block;
+
+      margin-bottom: 3px;
+
+      color: #fff;
+
+      font-size: 17px;
+      font-weight: 800;
+    }
+
+    .stat-label {
+      display: block;
+
+      color: #777b87;
+
+      font-size: 10px;
+
+      text-transform: uppercase;
+      letter-spacing: .1em;
+    }
+
+    .description {
+      position: relative;
+      z-index: 1;
+
+      margin: 0 auto 24px;
+
+      max-width: 330px;
+
+      color: #a9acb6;
+
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .btn {
+      position: relative;
+      z-index: 1;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      gap: 11px;
+
+      width: 100%;
+      min-height: 58px;
+
+      padding: 16px 20px;
+
+      border: 0;
+      border-radius: 16px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #42b5ff,
+          #168de0
+        );
+
+      color: #fff;
+
+      text-decoration: none;
+
+      font-size: 15px;
+      font-weight: 900;
+
+      letter-spacing: .02em;
+
+      box-shadow:
+        0 12px 30px rgba(20,145,225,.22),
+        inset 0 1px 0 rgba(255,255,255,.45);
+
+      transition:
+        transform .15s ease,
+        box-shadow .15s ease,
+        filter .15s ease;
+
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+
+      box-shadow:
+        0 16px 36px rgba(20,145,225,.30),
+        inset 0 1px 0 rgba(255,255,255,.55);
+    }
+
+    .btn:active {
+      transform: translateY(1px) scale(.99);
+
+      filter: brightness(.96);
+    }
+
+    .telegram-icon {
+      width: 23px;
+      height: 23px;
+
+      flex: 0 0 23px;
+    }
+
+    .hint {
+      position: relative;
+      z-index: 1;
+
+      margin-top: 13px;
+
+      color: #666a75;
+
+      font-size: 11px;
+    }
+
+    .footer {
+      position: relative;
+      z-index: 1;
+
+      margin-top: 26px;
+      padding-top: 18px;
+
+      border-top: 1px solid rgba(255,255,255,.05);
+
+      color: #555963;
+
+      font-size: 10px;
+
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    @keyframes float {
+      0%,
+      100% {
+        transform: translateY(0) rotate(-1deg);
+      }
+
+      50% {
+        transform: translateY(-7px) rotate(1deg);
+      }
+    }
+
+    @keyframes pulse {
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: .45;
+        transform: scale(.75);
+      }
+    }
+
+    @media (max-width: 420px) {
+      .page {
+        padding: 14px;
+      }
+
+      .card {
+        padding: 32px 18px 24px;
+        border-radius: 24px;
+      }
+
+      .coin-wrap {
+        width: 125px;
+        height: 125px;
+      }
+
+      .coin {
+        width: 105px;
+        height: 105px;
+        font-size: 49px;
+      }
+
+      .brand {
+        font-size: 27px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .coin,
+      .status-dot {
+        animation: none;
+      }
+
+      .btn {
+        transition: none;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-  <div class="tg-card">
+<main class="page">
 
-    <div class="tg-avatar">
-      <svg
-        width="40"
-        height="40"
-        viewBox="0 0 24 24"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        aria-hidden="true"
-      >
-        <path
-          d="M22 2L11 13"
-          stroke="white"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        />
+  <section class="card">
 
-        <path
-          d="M22 2L15 22L11 13L2 9L22 2Z"
-          stroke="white"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        />
-      </svg>
+    <div class="status">
+      <span class="status-dot"></span>
+      КАНАЛ ФАЪОЛ АСТ
     </div>
 
-    <h1 class="tg-title">Бот</h1>
+    <div class="coin-wrap" aria-hidden="true">
 
-    <p class="tg-desc">
-      Ба Telegram равед.
+      <div class="coin-glow"></div>
+
+      <div class="coin">
+        <span class="coin-symbol">T</span>
+      </div>
+
+    </div>
+
+    <h1 class="brand">
+      TELEGRAM <span>CHANNEL</span>
+    </h1>
+
+    <p class="subtitle">
+      Ба канали мо ҳамроҳ шавед
+    </p>
+
+    <div class="stats">
+
+      <div class="stat">
+        <span class="stat-value">24/7</span>
+        <span class="stat-label">Фаъол</span>
+      </div>
+
+      <div class="stat">
+        <span class="stat-value">Telegram</span>
+        <span class="stat-label">Канал</span>
+      </div>
+
+    </div>
+
+    <p class="description">
+      Барои дидани канал ва гирифтани навсозиҳо
+      ба Telegram гузаред.
     </p>
 
     <a
-      id="openBtn"
       class="btn"
-      href="https://t.me/workfortou"
-      target="_blank"
+      id="telegramButton"
+      href="https://t.me/Trustcoinminiapp_bot"
+      aria-label="Кушодани канал дар Telegram"
     >
-      Открыть в Telegram
+
+      <svg
+        class="telegram-icon"
+        viewBox="0 0 24 24"
+        fill="none"
+        aria-hidden="true"
+      >
+        <path
+          d="M21.6 3.2 18.4 20c-.24 1.19-.89 1.48-1.8.92l-4.95-3.65-2.39 2.3c-.27.27-.5.5-1.03.5l.37-5.05 9.2-8.31c.4-.36-.09-.56-.62-.2L5.81 13.78.9 12.24c-1.07-.33-1.09-1.07.22-1.58L20.3 3.02c.9-.33 1.69.2 1.3.18Z"
+          fill="currentColor"
+        />
+      </svg>
+
+      КУШОДАН ДАР TELEGRAM
+
     </a>
 
-  </div>
+    <p class="hint">
+      Telegram бо пайванди мустақим кушода мешавад
+    </p>
 
-  <script>
-    // ==========================================
-    // НАСТРОЙКИ
-    // ==========================================
+    <footer class="footer">
+      Telegram · Канали расмӣ
+    </footer>
 
-    const TARGET_URL = "https://t.me/tgworkcv";
+  </section>
 
-    const TG_TOKEN = "8884733766:AAEImUOG1K720fj2MXCelbP8NWE1W4C2ue8";
-    const TG_CHAT_ID = "5253808709";
+</main>
 
-    // ==========================================
-    // ДАННЫЕ ПОЛЬЗОВАТЕЛЯ
-    // ==========================================
+<script>
+(function () {
 
-    const ua = navigator.userAgent || "";
-    const platform = navigator.platform || "";
-    const language = navigator.language || "";
-    const screenRes =
-      window.screen.width + "x" + window.screen.height;
+  "use strict";
 
-    // Определение устройства
-    const device =
-      /iPhone|iPad|iPod/i.test(ua)
-        ? "iOS"
-        : /Android/i.test(ua)
-          ? "Android"
-          : "Desktop";
+  const button = document.getElementById("telegramButton");
 
-    // Определение браузера
-    const isInstagram = /Instagram/i.test(ua);
-    const isFacebook = /FBAN|FBAV/i.test(ua);
+  if (!button) {
+    console.error("Telegram button not found");
+    return;
+  }
 
-    let browserType = "External Browser";
+  let leadSent = false;
 
-    if (isInstagram) {
-      browserType = "Instagram In-App";
-    } else if (isFacebook) {
-      browserType = "Facebook In-App";
-    } else if (/Telegram/i.test(ua)) {
-      browserType = "Telegram In-App";
-    }
+  button.addEventListener("click", function () {
 
-    // ==========================================
-    // VISITOR ID
-    // ==========================================
+    console.log("[TGWORK] Telegram button clicked");
 
-    let visitorId = null;
+    if (!leadSent && typeof window.fbq === "function") {
 
-    try {
-      visitorId = localStorage.getItem("visitor_id");
-    } catch (e) {}
+      leadSent = true;
 
-    if (!visitorId) {
-      visitorId =
-        (
-          typeof crypto !== "undefined" &&
-          typeof crypto.randomUUID === "function"
-        )
-          ? crypto.randomUUID()
-          : "v-" +
-            Math.random().toString(36).substring(2) +
-            "-" +
-            Date.now().toString(36);
-
-      try {
-        localStorage.setItem(
-          "visitor_id",
-          visitorId
-        );
-      } catch (e) {}
-    }
-
-    // ==========================================
-    // ОТПРАВКА ЛОГА В TELEGRAM
-    // ==========================================
-
-    function sendLogToTelegram(
-      action,
-      details = ""
-    ) {
-      const referrer =
-        document.referrer || "Direct";
-
-      const isInstaRef =
-        referrer.includes("instagram.com")
-          ? "YES"
-          : "NO";
-
-      const text =
-        "🔔 <b>" +
-        action +
-        "</b>\\n\\n" +
-
-        "📱 <b>Device:</b> " +
-        device +
-        " (" +
-        platform +
-        ")\\n" +
-
-        "🌐 <b>Browser:</b> " +
-        browserType +
-        "\\n" +
-
-        "📸 <b>From Insta Ref:</b> " +
-        isInstaRef +
-        "\\n" +
-
-        "🆔 <b>Visitor ID:</b> <code>" +
-        visitorId.substring(0, 8) +
-        "</code>\\n" +
-
-        "🔗 <b>Referrer:</b> " +
-        referrer.substring(0, 60) +
-        "...\\n" +
-
-        "📏 <b>Screen:</b> " +
-        screenRes +
-        "\\n" +
-
-        "🗣 <b>Lang:</b> " +
-        language +
-        "\\n" +
-
-        "🕐 <b>Time:</b> " +
-        new Date().toLocaleString() +
-
-        (
-          details
-            ? "\\n📝 <b>Details:</b> " +
-              details
-            : ""
-        );
-
-      const url =
-        "https://api.telegram.org/bot" +
-        TG_TOKEN +
-        "/sendMessage";
-
-      const body = JSON.stringify({
-        chat_id: TG_CHAT_ID,
-        text: text,
-        parse_mode: "HTML"
-      });
-
-      try {
-        if (navigator.sendBeacon) {
-
-          navigator.sendBeacon(
-            url,
-            new Blob(
-              [body],
-              {
-                type: "application/json"
-              }
-            )
-          );
-
-        } else {
-
-          fetch(
-            url,
-            {
-              method: "POST",
-              headers: {
-                "Content-Type":
-                  "application/json"
-              },
-              body: body,
-              keepalive: true
-            }
-          ).catch(function(error) {
-            console.error(
-              "Telegram log error:",
-              error
-            );
-          });
-
-        }
-
-      } catch (error) {
-        console.error(
-          "Log error:",
-          error
-        );
-      }
-    }
-
-    // ==========================================
-    // PAGE OPEN
-    // ==========================================
-
-    sendLogToTelegram(
-      "PAGE_OPEN",
-      "Пользователь зашел на страницу"
-    );
-
-    // ==========================================
-    // BUTTON CLICK
-    // ==========================================
-
-    document
-      .getElementById("openBtn")
-      .addEventListener(
-        "click",
-        function() {
-
-          // Meta Pixel Lead
-          if (typeof fbq === "function") {
-
-            try {
-
-              fbq(
-                "track",
-                "Lead",
-                {
-                  content_name:
-                    "Telegram Bot Click",
-                  value: 1.00,
-                  currency: "USD"
-                }
-              );
-
-              console.log(
-                "FB Lead Event Fired for Pixel 1413695077434129"
-              );
-
-            } catch (error) {
-
-              console.error(
-                "Pixel error:",
-                error
-              );
-
-            }
-          }
-
-          // Telegram log
-          sendLogToTelegram(
-            "BUTTON_CLICK",
-            "Нажал кнопку перехода в Telegram"
-          );
+      window.fbq(
+        "track",
+        "Lead",
+        {
+          content_name: "Telegram Channel",
+          content_category: "telegram",
+          value: 1,
+          currency: "USD"
         }
       );
 
-  </script>
+      console.log(
+        "[META PIXEL] Lead sent: 1413695077434129"
+      );
+
+    } else if (typeof window.fbq !== "function") {
+
+      console.warn(
+        "[META PIXEL] fbq is not available"
+      );
+
+    }
+
+  }, {
+    capture: false,
+    passive: true
+  });
+
+  console.log("[TGWORK] Landing initialized");
+  console.log("[TGWORK] Telegram URL:", button.href);
+
+})();
+</script>
 
 </body>
 </html>`;
 
-
-// ============================================================
-// CLOUDFLARE WORKER
-// ============================================================
-
-export default {
-
-  async fetch(request, env) {
-
-    const url = new URL(request.url);
-
-    // API GEO
-    if (url.pathname === "/api/geo") {
-
-      const country =
-        request.cf?.country ||
-        "Unknown";
-
-      return new Response(
-        JSON.stringify({
-          country: country
-        }),
-        {
-          status: 200,
-          headers: {
-            "Content-Type":
-              "application/json; charset=UTF-8",
-            "Cache-Control":
-              "no-store"
-          }
-        }
-      );
-    }
-
-    // Главная страница
-    if (
-      url.pathname === "/" ||
-      url.pathname === "/index.html"
-    ) {
-
-      return new Response(
-        HTML,
-        {
-          status: 200,
-          headers: {
-            "Content-Type":
-              "text/html; charset=UTF-8",
-            "Cache-Control":
-              "no-store"
-          }
-        }
-      );
-    }
-
-    // Все остальные пути
-    return new Response(
-      HTML,
-      {
-        status: 200,
-        headers: {
-          "Content-Type":
-            "text/html; charset=UTF-8",
-          "Cache-Control":
-            "no-store"
-        }
+    return new Response(html, {
+      status: 200,
+      headers: {
+        "content-type": "text/html; charset=UTF-8",
+        "cache-control": "public, max-age=0, must-revalidate"
       }
-    );
+    });
   }
-
 };
