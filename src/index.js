@@ -407,7 +407,7 @@ const page = `<!doctype html>
       <a
         class="btn"
         id="telegramButton"
-        href="https://t.me/Trustcoinminiapp_bot"
+        href="https://t.me/tgworkcv"
         aria-label="Открыть в Telegram"
       >
 
