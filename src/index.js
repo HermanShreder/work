@@ -1,32 +1,39 @@
-export default {
-  async fetch(request, env, ctx) {
-    const html = `<!doctype html>
+const express = require("express");
+
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+const page = `<!doctype html>
 <html lang="tg">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
-  <meta name="facebook-domain-verification" content="1ddq5g9b9nlbak5619ajnlyjbz4xjt">
+  <title>Trust Coin — Telegram</title>
 
-  <title>Telegram Channel</title>
+  <meta
+    name="facebook-domain-verification"
+    content="1ddq5g9b9nlbak5619ajnlyjbz4xjt"
+  >
 
   <meta
     name="description"
-    content="Telegram channel — пайваст шудан ба канал"
+    content="Trust Coin — откройте приложение в Telegram."
   >
 
   <meta name="theme-color" content="#08090d">
   <meta name="color-scheme" content="dark">
 
-  <!-- Meta Pixel -->
+  <!-- META PIXEL -->
   <script>
     !function(f,b,e,v,n,t,s)
     {
       if(f.fbq)return;
+
       n=f.fbq=function(){
-        n.callMethod ?
-        n.callMethod.apply(n,arguments) :
-        n.queue.push(arguments)
+        n.callMethod
+          ? n.callMethod.apply(n,arguments)
+          : n.queue.push(arguments)
       };
 
       if(!f._fbq)f._fbq=n;
@@ -58,8 +65,8 @@ export default {
       height="1"
       width="1"
       style="display:none"
-      alt=""
       src="https://www.facebook.com/tr?id=1413695077434129&ev=PageView&noscript=1"
+      alt=""
     >
   </noscript>
 
@@ -82,7 +89,6 @@ export default {
       overflow-x: hidden;
 
       font-family:
-        Inter,
         -apple-system,
         BlinkMacSystemFont,
         "Segoe UI",
@@ -90,472 +96,238 @@ export default {
         Arial,
         sans-serif;
 
-      background:
-        radial-gradient(
-          circle at 50% 10%,
-          rgba(42, 137, 255, .16),
-          transparent 34%
-        ),
-        radial-gradient(
-          circle at 10% 90%,
-          rgba(30, 136, 229, .10),
-          transparent 30%
-        ),
-        #08090d;
-
-      color: #fff;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-
-      background:
-        linear-gradient(
-          rgba(255,255,255,.025) 1px,
-          transparent 1px
-        ),
-        linear-gradient(
-          90deg,
-          rgba(255,255,255,.025) 1px,
-          transparent 1px
-        );
-
-      background-size: 42px 42px;
-
-      mask-image: linear-gradient(
-        to bottom,
-        rgba(0,0,0,.9),
-        transparent
-      );
+      background: #f4f7fb;
+      color: #17212b;
     }
 
     .page {
-      position: relative;
       min-height: 100vh;
       min-height: 100dvh;
 
       display: flex;
       justify-content: center;
-      align-items: center;
+      align-items: flex-start;
 
-      padding: 24px 16px;
+      padding: 18px 14px 28px;
     }
 
     .card {
-      position: relative;
-
       width: 100%;
-      max-width: 430px;
+      max-width: 460px;
 
-      padding: 42px 24px 30px;
+      background: #fff;
 
-      text-align: center;
-
-      border: 1px solid rgba(255,255,255,.08);
-      border-radius: 28px;
-
-      background:
-        linear-gradient(
-          180deg,
-          rgba(25,27,35,.97),
-          rgba(11,12,17,.99)
-        );
-
-      box-shadow:
-        0 30px 80px rgba(0,0,0,.55),
-        inset 0 1px 0 rgba(255,255,255,.05);
+      border: 1px solid #e4e9ef;
+      border-radius: 18px;
 
       overflow: hidden;
-    }
-
-    .card::before {
-      content: "";
-
-      position: absolute;
-
-      top: -160px;
-      left: 50%;
-
-      transform: translateX(-50%);
-
-      width: 330px;
-      height: 330px;
-
-      border-radius: 50%;
-
-      background: rgba(42,137,255,.16);
-
-      filter: blur(70px);
-
-      pointer-events: none;
-    }
-
-    .status {
-      position: relative;
-      z-index: 1;
-
-      display: inline-flex;
-      align-items: center;
-
-      gap: 7px;
-
-      margin-bottom: 22px;
-
-      padding: 7px 12px;
-
-      border-radius: 999px;
-
-      border: 1px solid rgba(42,137,255,.20);
-
-      background: rgba(42,137,255,.07);
-
-      color: #4da3ff;
-
-      font-size: 11px;
-      font-weight: 800;
-
-      letter-spacing: .10em;
-      text-transform: uppercase;
-    }
-
-    .status-dot {
-      width: 7px;
-      height: 7px;
-
-      border-radius: 50%;
-
-      background: #36a9ff;
 
       box-shadow:
-        0 0 12px rgba(54,169,255,.8);
-
-      animation: pulse 1.8s infinite;
+        0 8px 28px rgba(28,47,66,.08);
     }
 
-    .coin-wrap {
-      position: relative;
-      z-index: 1;
+    /* Telegram banner */
 
-      width: 142px;
-      height: 142px;
-
-      margin: 0 auto 24px;
-
+    .tg-banner {
       display: flex;
-      justify-content: center;
       align-items: center;
+
+      gap: 12px;
+
+      padding: 15px 17px;
+
+      background: #229ed9;
+      color: #fff;
     }
 
-    .coin-glow {
-      position: absolute;
-      inset: 4px;
+    .tg-logo {
+      width: 40px;
+      height: 40px;
+
+      flex: 0 0 40px;
+
+      display: grid;
+      place-items: center;
 
       border-radius: 50%;
 
-      background: rgba(42,137,255,.20);
+      background: #fff;
+      color: #229ed9;
+    }
 
-      filter: blur(25px);
+    .tg-logo svg {
+      width: 23px;
+      height: 23px;
+    }
+
+    .tg-banner-text {
+      min-width: 0;
+      flex: 1;
+    }
+
+    .tg-banner-title {
+      font-size: 15px;
+      line-height: 1.2;
+      font-weight: 700;
+    }
+
+    .tg-banner-subtitle {
+      margin-top: 3px;
+
+      font-size: 12px;
+
+      opacity: .9;
+    }
+
+    /* Content */
+
+    .content {
+      padding: 30px 22px 24px;
+
+      text-align: center;
     }
 
     .coin {
-      position: relative;
+      width: 76px;
+      height: 76px;
 
-      width: 118px;
-      height: 118px;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      border-radius: 50%;
-
-      border: 7px solid #1687d9;
-
-      background:
-        radial-gradient(
-          circle at 35% 28%,
-          #ccecff 0%,
-          #6bc6ff 22%,
-          #229ee8 55%,
-          #0875b8 100%
-        );
-
-      color: #063c61;
-
-      font-size: 56px;
-      font-weight: 900;
-
-      box-shadow:
-        0 10px 35px rgba(25,150,230,.35),
-        inset 0 3px 4px rgba(255,255,255,.7),
-        inset 0 -8px 12px rgba(0,60,100,.28);
-
-      animation: float 3s ease-in-out infinite;
-    }
-
-    .coin::after {
-      content: "";
-
-      position: absolute;
-      inset: 9px;
-
-      border-radius: 50%;
-
-      border: 2px solid rgba(6,60,97,.22);
-    }
-
-    .coin-symbol {
-      position: relative;
-      z-index: 2;
-
-      transform: translateY(-2px);
-
-      text-shadow:
-        0 2px 0 rgba(255,255,255,.22);
-    }
-
-    .brand {
-      position: relative;
-      z-index: 1;
-
-      margin-bottom: 8px;
-
-      font-size: 30px;
-      line-height: 1;
-
-      font-weight: 900;
-
-      letter-spacing: -.04em;
-    }
-
-    .brand span {
-      color: #3aa9ff;
-    }
-
-    .subtitle {
-      position: relative;
-      z-index: 1;
-
-      color: #969aa6;
-
-      font-size: 14px;
-      line-height: 1.5;
-
-      margin-bottom: 24px;
-    }
-
-    .stats {
-      position: relative;
-      z-index: 1;
+      margin: 0 auto 18px;
 
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      place-items: center;
 
-      gap: 10px;
+      border-radius: 50%;
 
-      margin-bottom: 22px;
-    }
+      background: #e9f5fc;
+      border: 1px solid #d4ebf8;
 
-    .stat {
-      padding: 13px 10px;
+      color: #229ed9;
 
-      border-radius: 14px;
-
-      border: 1px solid rgba(255,255,255,.06);
-
-      background: rgba(255,255,255,.025);
-    }
-
-    .stat-value {
-      display: block;
-
-      margin-bottom: 3px;
-
-      color: #fff;
-
-      font-size: 17px;
+      font-size: 31px;
       font-weight: 800;
     }
 
-    .stat-label {
-      display: block;
+    .brand {
+      font-size: 28px;
+      line-height: 1.15;
 
-      color: #777b87;
+      font-weight: 750;
 
-      font-size: 10px;
+      letter-spacing: -.02em;
 
-      text-transform: uppercase;
-      letter-spacing: .1em;
+      color: #17212b;
+    }
+
+    .subtitle {
+      margin-top: 9px;
+
+      color: #65727e;
+
+      font-size: 14px;
+      line-height: 1.45;
     }
 
     .description {
-      position: relative;
-      z-index: 1;
+      max-width: 340px;
 
-      margin: 0 auto 24px;
+      margin: 18px auto 24px;
 
-      max-width: 330px;
+      color: #4f5d68;
 
-      color: #a9acb6;
-
-      font-size: 13px;
+      font-size: 14px;
       line-height: 1.55;
     }
 
-    .btn {
-      position: relative;
-      z-index: 1;
+    /* Button */
 
+    .btn {
       display: flex;
 
       align-items: center;
       justify-content: center;
 
-      gap: 11px;
+      gap: 10px;
 
       width: 100%;
-      min-height: 58px;
+      min-height: 54px;
 
-      padding: 16px 20px;
+      padding: 15px 18px;
 
       border: 0;
-      border-radius: 16px;
+      border-radius: 12px;
 
-      background:
-        linear-gradient(
-          135deg,
-          #42b5ff,
-          #168de0
-        );
+      background: #229ed9;
 
       color: #fff;
 
       text-decoration: none;
 
-      font-size: 15px;
-      font-weight: 900;
-
-      letter-spacing: .02em;
+      font-size: 16px;
+      font-weight: 700;
 
       box-shadow:
-        0 12px 30px rgba(20,145,225,.22),
-        inset 0 1px 0 rgba(255,255,255,.45);
+        0 5px 14px rgba(34,158,217,.18);
 
       transition:
-        transform .15s ease,
-        box-shadow .15s ease,
-        filter .15s ease;
+        background .15s ease,
+        transform .15s ease;
 
       -webkit-tap-highlight-color: transparent;
     }
 
     .btn:hover {
-      transform: translateY(-2px);
+      background: #1d8fc4;
 
-      box-shadow:
-        0 16px 36px rgba(20,145,225,.30),
-        inset 0 1px 0 rgba(255,255,255,.55);
+      transform: translateY(-1px);
     }
 
     .btn:active {
-      transform: translateY(1px) scale(.99);
-
-      filter: brightness(.96);
+      transform: translateY(1px);
     }
 
     .telegram-icon {
-      width: 23px;
-      height: 23px;
+      width: 21px;
+      height: 21px;
 
-      flex: 0 0 23px;
+      flex: 0 0 21px;
     }
 
     .hint {
-      position: relative;
-      z-index: 1;
+      margin-top: 11px;
 
-      margin-top: 13px;
-
-      color: #666a75;
+      color: #8a96a1;
 
       font-size: 11px;
     }
 
     .footer {
-      position: relative;
-      z-index: 1;
+      margin-top: 22px;
 
-      margin-top: 26px;
-      padding-top: 18px;
+      padding-top: 17px;
 
-      border-top: 1px solid rgba(255,255,255,.05);
+      border-top: 1px solid #edf0f3;
 
-      color: #555963;
+      color: #9aa4ad;
 
       font-size: 10px;
-
-      letter-spacing: .06em;
-      text-transform: uppercase;
-    }
-
-    @keyframes float {
-      0%,
-      100% {
-        transform: translateY(0) rotate(-1deg);
-      }
-
-      50% {
-        transform: translateY(-7px) rotate(1deg);
-      }
-    }
-
-    @keyframes pulse {
-      0%,
-      100% {
-        opacity: 1;
-        transform: scale(1);
-      }
-
-      50% {
-        opacity: .45;
-        transform: scale(.75);
-      }
     }
 
     @media (max-width: 420px) {
+
       .page {
-        padding: 14px;
+        padding: 10px 10px 20px;
       }
 
-      .card {
-        padding: 32px 18px 24px;
-        border-radius: 24px;
-      }
-
-      .coin-wrap {
-        width: 125px;
-        height: 125px;
-      }
-
-      .coin {
-        width: 105px;
-        height: 105px;
-        font-size: 49px;
+      .content {
+        padding: 26px 17px 21px;
       }
 
       .brand {
-        font-size: 27px;
+        font-size: 25px;
       }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .coin,
-      .status-dot {
-        animation: none;
-      }
 
       .btn {
         transition: none;
@@ -570,148 +342,225 @@ export default {
 
   <section class="card">
 
-    <div class="status">
-      <span class="status-dot"></span>
-      КАНАЛ ФАЪОЛ АСТ
-    </div>
+    <!-- TELEGRAM BANNER -->
 
-    <div class="coin-wrap" aria-hidden="true">
+    <div class="tg-banner">
 
-      <div class="coin-glow"></div>
+      <div class="tg-logo" aria-hidden="true">
 
-      <div class="coin">
-        <span class="coin-symbol">T</span>
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+        >
+          <path
+            d="M21.6 3.2 18.4 20c-.24 1.19-.89 1.48-1.8.92l-4.95-3.65-2.39 2.3c-.27.27-.5.5-1.03.5l.37-5.05 9.2-8.31c.4-.36-.09-.56-.62-.2L5.81 13.78.9 12.24c-1.07-.33-1.09-1.07.22-1.58L20.3 3.02c.9-.33 1.69.2 1.3.18Z"
+            fill="currentColor"
+          />
+        </svg>
+
+      </div>
+
+      <div class="tg-banner-text">
+
+        <div class="tg-banner-title">
+          Telegram
+        </div>
+
+        <div class="tg-banner-subtitle">
+          Откройте Trust Coin в приложении
+        </div>
+
       </div>
 
     </div>
 
-    <h1 class="brand">
-      TELEGRAM <span>CHANNEL</span>
-    </h1>
 
-    <p class="subtitle">
-      Ба канали мо ҳамроҳ шавед
-    </p>
+    <!-- CONTENT -->
 
-    <div class="stats">
+    <div class="content">
 
-      <div class="stat">
-        <span class="stat-value">24/7</span>
-        <span class="stat-label">Фаъол</span>
-      </div>
-
-      <div class="stat">
-        <span class="stat-value">Telegram</span>
-        <span class="stat-label">Канал</span>
-      </div>
-
-    </div>
-
-    <p class="description">
-      Барои дидани канал ва гирифтани навсозиҳо
-      ба Telegram гузаред.
-    </p>
-
-    <a
-      class="btn"
-      id="telegramButton"
-      href="https://t.me/Trustcoinminiapp_bot"
-      aria-label="Кушодани канал дар Telegram"
-    >
-
-      <svg
-        class="telegram-icon"
-        viewBox="0 0 24 24"
-        fill="none"
+      <div
+        class="coin"
         aria-hidden="true"
       >
-        <path
-          d="M21.6 3.2 18.4 20c-.24 1.19-.89 1.48-1.8.92l-4.95-3.65-2.39 2.3c-.27.27-.5.5-1.03.5l.37-5.05 9.2-8.31c.4-.36-.09-.56-.62-.2L5.81 13.78.9 12.24c-1.07-.33-1.09-1.07.22-1.58L20.3 3.02c.9-.33 1.69.2 1.3.18Z"
-          fill="currentColor"
-        />
-      </svg>
+        ₮
+      </div>
 
-      КУШОДАН ДАР TELEGRAM
 
-    </a>
+      <h1 class="brand">
+        Trust Coin
+      </h1>
 
-    <p class="hint">
-      Telegram бо пайванди мустақим кушода мешавад
-    </p>
 
-    <footer class="footer">
-      Telegram · Канали расмӣ
-    </footer>
+      <p class="subtitle">
+        Приложение в Telegram
+      </p>
+
+
+      <p class="description">
+        Нажмите кнопку ниже, чтобы открыть Trust Coin напрямую в Telegram.
+      </p>
+
+
+      <!-- TELEGRAM BUTTON -->
+
+      <a
+        class="btn"
+        id="telegramButton"
+        href="https://t.me/Trustcoinminiapp_bot"
+        aria-label="Открыть в Telegram"
+      >
+
+        <svg
+          class="telegram-icon"
+          viewBox="0 0 24 24"
+          fill="none"
+          aria-hidden="true"
+        >
+
+          <path
+            d="M21.6 3.2 18.4 20c-.24 1.19-.89 1.48-1.8.92l-4.95-3.65-2.39 2.3c-.27.27-.5.5-1.03.5l.37-5.05 9.2-8.31c.4-.36-.09-.56-.62-.2L5.81 13.78.9 12.24c-1.07-.33-1.09-1.07.22-1.58L20.3 3.02c.9-.33 1.69.2 1.3.18Z"
+            fill="currentColor"
+          />
+
+        </svg>
+
+        Открыть в Telegram
+
+      </a>
+
+
+      <p class="hint">
+        Откроется прямой Telegram-переход
+      </p>
+
+
+      <footer class="footer">
+        Trust Coin · Telegram
+      </footer>
+
+    </div>
 
   </section>
 
 </main>
 
+
+<!-- LEAD TRACKING -->
+
 <script>
+
 (function () {
 
   "use strict";
 
-  const button = document.getElementById("telegramButton");
+
+  const button =
+    document.getElementById("telegramButton");
+
 
   if (!button) {
-    console.error("Telegram button not found");
+
+    console.error(
+      "Telegram button not found"
+    );
+
     return;
   }
 
+
   let leadSent = false;
 
-  button.addEventListener("click", function () {
 
-    console.log("[TGWORK] Telegram button clicked");
-
-    if (!leadSent && typeof window.fbq === "function") {
-
-      leadSent = true;
-
-      window.fbq(
-        "track",
-        "Lead",
-        {
-          content_name: "Telegram Channel",
-          content_category: "telegram",
-          value: 1,
-          currency: "USD"
-        }
-      );
+  button.addEventListener(
+    "click",
+    function () {
 
       console.log(
-        "[META PIXEL] Lead sent: 1413695077434129"
+        "[TRUST COIN] Telegram button clicked"
       );
 
-    } else if (typeof window.fbq !== "function") {
 
-      console.warn(
-        "[META PIXEL] fbq is not available"
-      );
+      if (
+        !leadSent &&
+        typeof window.fbq === "function"
+      ) {
 
+        leadSent = true;
+
+
+        window.fbq(
+          "track",
+          "Lead",
+          {
+            content_name:
+              "Trust Coin Telegram",
+
+            content_category:
+              "telegram"
+          }
+        );
+
+
+        console.log(
+          "[META PIXEL] Lead sent: 1413695077434129"
+        );
+
+
+      } else if (
+        typeof window.fbq !== "function"
+      ) {
+
+        console.warn(
+          "[META PIXEL] fbq is not available"
+        );
+
+      }
+
+    },
+    {
+      capture: false,
+      passive: true
     }
+  );
 
-  }, {
-    capture: false,
-    passive: true
-  });
 
-  console.log("[TGWORK] Landing initialized");
-  console.log("[TGWORK] Telegram URL:", button.href);
+  console.log(
+    "[TRUST COIN] Landing initialized"
+  );
+
+
+  console.log(
+    "[TRUST COIN] Telegram URL:",
+    button.href
+  );
 
 })();
+
 </script>
 
 </body>
 </html>`;
 
-    return new Response(html, {
-      status: 200,
-      headers: {
-        "content-type": "text/html; charset=UTF-8",
-        "cache-control": "public, max-age=0, must-revalidate"
-      }
-    });
+
+app.get("/", (req, res) => {
+
+  res
+    .status(200)
+    .type("html")
+    .send(page);
+
+});
+
+
+app.listen(
+  PORT,
+  "0.0.0.0",
+  () => {
+
+    console.log(
+      \`Trust Coin landing started on port \${PORT}\`
+    );
+
   }
-};
+);
