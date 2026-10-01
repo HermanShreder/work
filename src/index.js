@@ -1,4 +1,4 @@
-const page = `<!doctype html>
+const HTML = `<!doctype html>
 <html lang="tg">
 <head>
   <meta charset="utf-8">
@@ -326,6 +326,7 @@ const page = `<!doctype html>
     <div class="tg-banner">
 
       <div class="tg-logo" aria-hidden="true">
+
         <svg
           viewBox="0 0 24 24"
           fill="none"
@@ -335,9 +336,11 @@ const page = `<!doctype html>
             fill="currentColor"
           />
         </svg>
+
       </div>
 
       <div class="tg-banner-text">
+
         <div class="tg-banner-title">
           Telegram
         </div>
@@ -345,6 +348,7 @@ const page = `<!doctype html>
         <div class="tg-banner-subtitle">
           Откройте Trust Coin в приложении
         </div>
+
       </div>
 
     </div>
@@ -383,10 +387,12 @@ const page = `<!doctype html>
           fill="none"
           aria-hidden="true"
         >
+
           <path
             d="M21.6 3.2 18.4 20c-.24 1.19-.89 1.48-1.8.92l-4.95-3.65-2.39 2.3c-.27.27-.5.5-1.03.5l.37-5.05 9.2-8.31c.4-.36-.09-.56-.62-.2L5.81 13.78.9 12.24c-1.07-.33-1.09-1.07.22-1.58L20.3 3.02c.9-.33 1.69.2 1.3.18Z"
             fill="currentColor"
           />
+
         </svg>
 
         Открыть в Telegram
@@ -460,9 +466,7 @@ const page = `<!doctype html>
     passive: true
   });
 
-  console.log(
-    "[TRUST COIN] Landing initialized"
-  );
+  console.log("[TRUST COIN] Landing initialized");
 
   console.log(
     "[TRUST COIN] Telegram URL:",
@@ -477,33 +481,38 @@ const page = `<!doctype html>
 
 
 /*
- * Cloudflare Worker
+ * CLOUDFLARE WORKER
  */
+
 export default {
   async fetch(request) {
+
     const url = new URL(request.url);
 
-    if (url.pathname === "/") {
-      return new Response(page, {
+    if (
+      request.method === "GET" &&
+      (
+        url.pathname === "/" ||
+        url.pathname === "/index.html"
+      )
+    ) {
+
+      return new Response(HTML, {
         status: 200,
         headers: {
-          "content-type": "text/html; charset=UTF-8",
-          "cache-control": "no-cache"
+          "Content-Type": "text/html; charset=UTF-8",
+          "Cache-Control": "no-cache"
         }
       });
-    }
 
-    if (url.pathname === "/favicon.ico") {
-      return new Response(null, {
-        status: 204
-      });
     }
 
     return new Response("Not Found", {
       status: 404,
       headers: {
-        "content-type": "text/plain; charset=UTF-8"
+        "Content-Type": "text/plain; charset=UTF-8"
       }
     });
+
   }
 };
