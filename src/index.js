@@ -374,7 +374,6 @@ const page = `<!doctype html>
 
     </div>
 
-
     <!-- CONTENT -->
 
     <div class="content">
@@ -386,21 +385,17 @@ const page = `<!doctype html>
         ₮
       </div>
 
-
       <h1 class="brand">
         Trust Coin
       </h1>
-
 
       <p class="subtitle">
         Приложение в Telegram
       </p>
 
-
       <p class="description">
         Нажмите кнопку ниже, чтобы открыть Trust Coin напрямую в Telegram.
       </p>
-
 
       <!-- TELEGRAM BUTTON -->
 
@@ -429,11 +424,9 @@ const page = `<!doctype html>
 
       </a>
 
-
       <p class="hint">
         Откроется прямой Telegram-переход
       </p>
-
 
       <footer class="footer">
         Trust Coin · Telegram
@@ -445,7 +438,6 @@ const page = `<!doctype html>
 
 </main>
 
-
 <!-- LEAD TRACKING -->
 
 <script>
@@ -454,10 +446,8 @@ const page = `<!doctype html>
 
   "use strict";
 
-
   const button =
     document.getElementById("telegramButton");
-
 
   if (!button) {
 
@@ -468,9 +458,7 @@ const page = `<!doctype html>
     return;
   }
 
-
   let leadSent = false;
-
 
   button.addEventListener(
     "click",
@@ -480,14 +468,12 @@ const page = `<!doctype html>
         "[TRUST COIN] Telegram button clicked"
       );
 
-
       if (
         !leadSent &&
         typeof window.fbq === "function"
       ) {
 
         leadSent = true;
-
 
         window.fbq(
           "track",
@@ -501,11 +487,9 @@ const page = `<!doctype html>
           }
         );
 
-
         console.log(
           "[META PIXEL] Lead sent: 1413695077434129"
         );
-
 
       } else if (
         typeof window.fbq !== "function"
@@ -524,11 +508,9 @@ const page = `<!doctype html>
     }
   );
 
-
   console.log(
     "[TRUST COIN] Landing initialized"
   );
-
 
   console.log(
     "[TRUST COIN] Telegram URL:",
@@ -559,7 +541,7 @@ app.listen(
   () => {
 
     console.log(
-      \`Trust Coin landing started on port \${PORT}\`
+      "Trust Coin landing started on port " + PORT
     );
 
   }
