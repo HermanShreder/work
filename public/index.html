@@ -2,11 +2,14 @@
 <html lang="tg">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, viewport-fit=cover"
+  >
 
   <title>Trust Coin — Telegram</title>
 
-  <!-- ПОДТВЕРЖДЕНИЕ ДОМЕНА META -->
   <meta
     name="facebook-domain-verification"
     content="1ddq5g9b9nlbak5619ajnlyjbz4xjt"
@@ -21,6 +24,7 @@
   <meta name="color-scheme" content="dark">
 
   <!-- META PIXEL -->
+
   <script>
     !function(f,b,e,v,n,t,s)
     {
@@ -67,160 +71,475 @@
   </noscript>
 
   <style>
-    *{box-sizing:border-box;margin:0;padding:0}
-    html,body{width:100%;min-height:100%}
-    body{
-      min-height:100vh;min-height:100dvh;overflow-x:hidden;
-      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
-      background:#f4f7fb;color:#17212b;
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
-    .page{
-      min-height:100vh;min-height:100dvh;
-      display:flex;justify-content:center;align-items:flex-start;
-      padding:18px 14px 28px;
+
+    html,
+    body {
+      width: 100%;
+      min-height: 100%;
     }
-    .card{
-      width:100%;max-width:460px;background:#fff;
-      border:1px solid #e4e9ef;border-radius:18px;overflow:hidden;
-      box-shadow:0 8px 28px rgba(28,47,66,.08);
+
+    body {
+      min-height: 100vh;
+      min-height: 100dvh;
+
+      overflow-x: hidden;
+
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
+
+      background: #f4f7fb;
+      color: #17212b;
     }
-    .tg-banner{
-      display:flex;align-items:center;gap:12px;
-      padding:15px 17px;background:#229ed9;color:#fff;
+
+    .page {
+      min-height: 100vh;
+      min-height: 100dvh;
+
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+
+      padding: 18px 14px 28px;
     }
-    .tg-logo{
-      width:40px;height:40px;flex:0 0 40px;display:grid;place-items:center;
-      border-radius:50%;background:#fff;color:#229ed9;
+
+    .card {
+      width: 100%;
+      max-width: 460px;
+
+      background: #ffffff;
+
+      border: 1px solid #e4e9ef;
+      border-radius: 18px;
+
+      overflow: hidden;
+
+      box-shadow:
+        0 8px 28px rgba(28, 47, 66, 0.08);
     }
-    .tg-logo svg{width:23px;height:23px}
-    .tg-banner-text{min-width:0;flex:1}
-    .tg-banner-title{font-size:15px;line-height:1.2;font-weight:700}
-    .tg-banner-subtitle{margin-top:3px;font-size:12px;opacity:.9}
-    .content{padding:30px 22px 24px;text-align:center}
-    .coin{
-      width:76px;height:76px;margin:0 auto 18px;display:grid;place-items:center;
-      border-radius:50%;background:#e9f5fc;border:1px solid #d4ebf8;
-      color:#229ed9;font-size:31px;font-weight:800;
+
+    /* TELEGRAM BANNER */
+
+    .tg-banner {
+      display: flex;
+      align-items: center;
+
+      gap: 12px;
+
+      padding: 15px 17px;
+
+      background: #229ed9;
+
+      color: #ffffff;
     }
-    .brand{font-size:28px;line-height:1.15;font-weight:750;letter-spacing:-.02em;color:#17212b}
-    .subtitle{margin-top:9px;color:#65727e;font-size:14px;line-height:1.45}
-    .description{
-      max-width:340px;margin:18px auto 24px;color:#4f5d68;
-      font-size:14px;line-height:1.55;
+
+    .tg-logo {
+      width: 40px;
+      height: 40px;
+
+      flex: 0 0 40px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 50%;
+
+      background: #ffffff;
+      color: #229ed9;
     }
-    .btn{
-      display:flex;align-items:center;justify-content:center;gap:10px;
-      width:100%;min-height:54px;padding:15px 18px;border:0;border-radius:12px;
-      background:#229ed9;color:#fff;text-decoration:none;font-size:16px;font-weight:700;
-      box-shadow:0 5px 14px rgba(34,158,217,.18);
-      transition:background .15s ease,transform .15s ease;
-      -webkit-tap-highlight-color:transparent;
+
+    .tg-logo svg {
+      width: 23px;
+      height: 23px;
     }
-    .btn:hover{background:#1d8fc4;transform:translateY(-1px)}
-    .btn:active{transform:translateY(1px)}
-    .telegram-icon{width:21px;height:21px;flex:0 0 21px}
-    .hint{margin-top:11px;color:#8a96a1;font-size:11px}
-    .footer{margin-top:22px;padding-top:17px;border-top:1px solid #edf0f3;color:#9aa4ad;font-size:10px}
-    @media(max-width:420px){
-      .page{padding:10px 10px 20px}.content{padding:26px 17px 21px}.brand{font-size:25px}
+
+    .tg-banner-text {
+      min-width: 0;
+      flex: 1;
     }
-    @media(prefers-reduced-motion:reduce){.btn{transition:none}}
+
+    .tg-banner-title {
+      font-size: 15px;
+      line-height: 1.2;
+      font-weight: 700;
+    }
+
+    .tg-banner-subtitle {
+      margin-top: 3px;
+
+      font-size: 12px;
+
+      opacity: 0.9;
+    }
+
+    /* CONTENT */
+
+    .content {
+      padding: 30px 22px 24px;
+
+      text-align: center;
+    }
+
+    .coin {
+      width: 76px;
+      height: 76px;
+
+      margin: 0 auto 18px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 50%;
+
+      background: #e9f5fc;
+
+      border: 1px solid #d4ebf8;
+
+      color: #229ed9;
+
+      font-size: 31px;
+
+      font-weight: 800;
+    }
+
+    .brand {
+      font-size: 28px;
+
+      line-height: 1.15;
+
+      font-weight: 750;
+
+      letter-spacing: -0.02em;
+
+      color: #17212b;
+    }
+
+    .subtitle {
+      margin-top: 9px;
+
+      color: #65727e;
+
+      font-size: 14px;
+
+      line-height: 1.45;
+    }
+
+    .description {
+      max-width: 340px;
+
+      margin: 18px auto 24px;
+
+      color: #4f5d68;
+
+      font-size: 14px;
+
+      line-height: 1.55;
+    }
+
+    /* TELEGRAM BUTTON */
+
+    .btn {
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      gap: 10px;
+
+      width: 100%;
+
+      min-height: 54px;
+
+      padding: 15px 18px;
+
+      border: 0;
+
+      border-radius: 12px;
+
+      background: #229ed9;
+
+      color: #ffffff;
+
+      text-decoration: none;
+
+      font-size: 16px;
+
+      font-weight: 700;
+
+      box-shadow:
+        0 5px 14px rgba(34, 158, 217, 0.18);
+
+      transition:
+        background 0.15s ease,
+        transform 0.15s ease;
+
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .btn:hover {
+      background: #1d8fc4;
+
+      transform: translateY(-1px);
+    }
+
+    .btn:active {
+      transform: translateY(1px);
+    }
+
+    .telegram-icon {
+      width: 21px;
+      height: 21px;
+
+      flex: 0 0 21px;
+    }
+
+    .hint {
+      margin-top: 11px;
+
+      color: #8a96a1;
+
+      font-size: 11px;
+    }
+
+    .footer {
+      margin-top: 22px;
+
+      padding-top: 17px;
+
+      border-top: 1px solid #edf0f3;
+
+      color: #9aa4ad;
+
+      font-size: 10px;
+    }
+
+    @media (max-width: 420px) {
+
+      .page {
+        padding: 10px 10px 20px;
+      }
+
+      .content {
+        padding: 26px 17px 21px;
+      }
+
+      .brand {
+        font-size: 25px;
+      }
+
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      .btn {
+        transition: none;
+      }
+
+    }
+
   </style>
 </head>
 
 <body>
 
-<main class="page">
-  <section class="card">
-    <div class="tg-banner">
-      <div class="tg-logo" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none">
-          <path d="M21.6 3.2 18.4 20c-.24 1.19-.89 1.48-1.8.92l-4.95-3.65-2.39 2.3c-.27.27-.5.5-1.03.5l.37-5.05 9.2-8.31c.4-.36-.09-.56-.62-.2L5.81 13.78.9 12.24c-1.07-.33-1.09-1.07.22-1.58L20.3 3.02c.9-.33 1.69.2 1.3.18Z" fill="currentColor"/>
-        </svg>
+  <main class="page">
+
+    <section class="card">
+
+      <!-- TELEGRAM BANNER -->
+
+      <div class="tg-banner">
+
+        <div
+          class="tg-logo"
+          aria-hidden="true"
+        >
+
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+          >
+
+            <path
+              d="M21.6 3.2 18.4 20c-.24 1.19-.89 1.48-1.8.92l-4.95-3.65-2.39 2.3c-.27.27-.5.5-1.03.5l.37-5.05 9.2-8.31c.4-.36-.09-.56-.62-.2L5.81 13.78.9 12.24c-1.07-.33-1.09-1.07.22-1.58L20.3 3.02c.9-.33 1.69.2 1.3.18Z"
+              fill="currentColor"
+            />
+
+          </svg>
+
+        </div>
+
+        <div class="tg-banner-text">
+
+          <div class="tg-banner-title">
+            Telegram
+          </div>
+
+          <div class="tg-banner-subtitle">
+            Откройте Trust Coin в приложении
+          </div>
+
+        </div>
+
       </div>
-      <div class="tg-banner-text">
-        <div class="tg-banner-title">Telegram</div>
-        <div class="tg-banner-subtitle">Откройте Trust Coin в приложении</div>
+
+      <!-- CONTENT -->
+
+      <div class="content">
+
+        <div
+          class="coin"
+          aria-hidden="true"
+        >
+          ₮
+        </div>
+
+        <h1 class="brand">
+          Trust Coin
+        </h1>
+
+        <p class="subtitle">
+          Приложение в Telegram
+        </p>
+
+        <p class="description">
+          Нажмите кнопку ниже, чтобы открыть Trust Coin напрямую в Telegram.
+        </p>
+
+        <!-- TELEGRAM BUTTON -->
+
+        <a
+          class="btn"
+          id="telegramButton"
+          href="https://t.me/tgworkcv"
+          aria-label="Открыть в Telegram"
+        >
+
+          <svg
+            class="telegram-icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            aria-hidden="true"
+          >
+
+            <path
+              d="M21.6 3.2 18.4 20c-.24 1.19-.89 1.48-1.8.92l-4.95-3.65-2.39 2.3c-.27.27-.5.5-1.03.5l.37-5.05 9.2-8.31c.4-.36-.09-.56-.62-.2L5.81 13.78.9 12.24c-1.07-.33-1.09-1.07.22-1.58L20.3 3.02c.9-.33 1.69.2 1.3.18Z"
+              fill="currentColor"
+            />
+
+          </svg>
+
+          Открыть в Telegram
+
+        </a>
+
+        <p class="hint">
+          Откроется прямой Telegram-переход
+        </p>
+
+        <footer class="footer">
+          Trust Coin · Telegram
+        </footer>
+
       </div>
-    </div>
 
-    <div class="content">
-      <div class="coin" aria-hidden="true">₮</div>
-      <h1 class="brand">Trust Coin</h1>
-      <p class="subtitle">Приложение в Telegram</p>
-      <p class="description">Нажмите кнопку ниже, чтобы открыть Trust Coin напрямую в Telegram.</p>
+    </section>
 
-      <a class="btn" id="telegramButton" href="https://t.me/tgworkcv" aria-label="Открыть в Telegram">
-        <svg class="telegram-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <path d="M21.6 3.2 18.4 20c-.24 1.19-.89 1.48-1.8.92l-4.95-3.65-2.39 2.3c-.27.27-.5.5-1.03.5l.37-5.05 9.2-8.31c.4-.36-.09-.56-.62-.2L5.81 13.78.9 12.24c-1.07-.33-1.09-1.07.22-1.58L20.3 3.02c.9-.33 1.69.2 1.3.18Z" fill="currentColor"/>
-        </svg>
-        Открыть в Telegram
-      </a>
+  </main>
 
-      <p class="hint">Откроется прямой Telegram-переход</p>
-      <footer class="footer">Trust Coin · Telegram</footer>
-    </div>
-  </section>
-</main>
-<script>
-(function () {
+  <!-- LEAD TRACKING -->
 
-  "use strict";
+  <script>
 
-  const button = document.getElementById("telegramButton");
+    (function () {
 
-  if (!button) {
-    console.error("Telegram button not found");
-    return;
-  }
+      "use strict";
 
-  let leadSent = false;
+      const button =
+        document.getElementById("telegramButton");
 
-  button.addEventListener("click", function () {
+      if (!button) {
 
-    console.log("[FIRE CREO] Telegram button clicked");
+        console.error(
+          "Telegram button not found"
+        );
 
-    if (!leadSent && typeof window.fbq === "function") {
+        return;
+      }
 
-      leadSent = true;
+      let leadSent = false;
 
-      window.fbq(
-        "track",
-        "Lead",
+      button.addEventListener(
+        "click",
+        function () {
+
+          console.log(
+            "[TRUST COIN] Telegram button clicked"
+          );
+
+          if (
+            !leadSent &&
+            typeof window.fbq === "function"
+          ) {
+
+            leadSent = true;
+
+            window.fbq(
+              "track",
+              "Lead",
+              {
+                content_name:
+                  "Trust Coin Telegram",
+
+                content_category:
+                  "telegram"
+              }
+            );
+
+            console.log(
+              "[META PIXEL] Lead sent: 1413695077434129"
+            );
+
+          } else if (
+            typeof window.fbq !== "function"
+          ) {
+
+            console.warn(
+              "[META PIXEL] fbq is not available"
+            );
+
+          }
+
+        },
         {
-          content_name: "Trust Coin Telegram",
-          content_category: "telegram",
-
+          capture: false,
+          passive: true
         }
       );
 
       console.log(
-        "[META PIXEL] Lead sent: 1413695077434129"
+        "[TRUST COIN] Landing initialized"
       );
 
-    } else if (typeof window.fbq !== "function") {
-
-      console.warn(
-        "[META PIXEL] fbq is not available"
+      console.log(
+        "[TRUST COIN] Telegram URL:",
+        button.href
       );
 
-    }
+    })();
 
-    /*
-      Обычный переход по href.
-      Никаких redirect, window.open или задержек.
-    */
-
-  }, {
-    capture: false,
-    passive: true
-  });
-
-  console.log("[FIRE CREO] Landing initialized");
-  console.log("[FIRE CREO] Telegram URL:", button.href);
-
-})();
-</script>
+  </script>
 
 </body>
 </html>
