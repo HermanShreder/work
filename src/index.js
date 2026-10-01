@@ -1,8 +1,3 @@
-const express = require("express");
-
-const app = express();
-const PORT = process.env.PORT || 3000;
-
 const page = `<!doctype html>
 <html lang="tg">
 <head>
@@ -126,12 +121,9 @@ const page = `<!doctype html>
         0 8px 28px rgba(28,47,66,.08);
     }
 
-    /* Telegram banner */
-
     .tg-banner {
       display: flex;
       align-items: center;
-
       gap: 12px;
 
       padding: 15px 17px;
@@ -173,17 +165,12 @@ const page = `<!doctype html>
 
     .tg-banner-subtitle {
       margin-top: 3px;
-
       font-size: 12px;
-
       opacity: .9;
     }
 
-    /* Content */
-
     .content {
       padding: 30px 22px 24px;
-
       text-align: center;
     }
 
@@ -212,7 +199,6 @@ const page = `<!doctype html>
       line-height: 1.15;
 
       font-weight: 750;
-
       letter-spacing: -.02em;
 
       color: #17212b;
@@ -237,8 +223,6 @@ const page = `<!doctype html>
       font-size: 14px;
       line-height: 1.55;
     }
-
-    /* Button */
 
     .btn {
       display: flex;
@@ -277,7 +261,6 @@ const page = `<!doctype html>
 
     .btn:hover {
       background: #1d8fc4;
-
       transform: translateY(-1px);
     }
 
@@ -313,7 +296,6 @@ const page = `<!doctype html>
     }
 
     @media (max-width: 420px) {
-
       .page {
         padding: 10px 10px 20px;
       }
@@ -328,7 +310,6 @@ const page = `<!doctype html>
     }
 
     @media (prefers-reduced-motion: reduce) {
-
       .btn {
         transition: none;
       }
@@ -342,12 +323,9 @@ const page = `<!doctype html>
 
   <section class="card">
 
-    <!-- TELEGRAM BANNER -->
-
     <div class="tg-banner">
 
       <div class="tg-logo" aria-hidden="true">
-
         <svg
           viewBox="0 0 24 24"
           fill="none"
@@ -357,11 +335,9 @@ const page = `<!doctype html>
             fill="currentColor"
           />
         </svg>
-
       </div>
 
       <div class="tg-banner-text">
-
         <div class="tg-banner-title">
           Telegram
         </div>
@@ -369,12 +345,9 @@ const page = `<!doctype html>
         <div class="tg-banner-subtitle">
           Откройте Trust Coin в приложении
         </div>
-
       </div>
 
     </div>
-
-    <!-- CONTENT -->
 
     <div class="content">
 
@@ -397,8 +370,6 @@ const page = `<!doctype html>
         Нажмите кнопку ниже, чтобы открыть Trust Coin напрямую в Telegram.
       </p>
 
-      <!-- TELEGRAM BUTTON -->
-
       <a
         class="btn"
         id="telegramButton"
@@ -412,12 +383,10 @@ const page = `<!doctype html>
           fill="none"
           aria-hidden="true"
         >
-
           <path
             d="M21.6 3.2 18.4 20c-.24 1.19-.89 1.48-1.8.92l-4.95-3.65-2.39 2.3c-.27.27-.5.5-1.03.5l.37-5.05 9.2-8.31c.4-.36-.09-.56-.62-.2L5.81 13.78.9 12.24c-1.07-.33-1.09-1.07.22-1.58L20.3 3.02c.9-.33 1.69.2 1.3.18Z"
             fill="currentColor"
           />
-
         </svg>
 
         Открыть в Telegram
@@ -438,75 +407,58 @@ const page = `<!doctype html>
 
 </main>
 
-<!-- LEAD TRACKING -->
-
 <script>
-
 (function () {
 
   "use strict";
 
-  const button =
-    document.getElementById("telegramButton");
+  const button = document.getElementById("telegramButton");
 
   if (!button) {
-
-    console.error(
-      "Telegram button not found"
-    );
-
+    console.error("Telegram button not found");
     return;
   }
 
   let leadSent = false;
 
-  button.addEventListener(
-    "click",
-    function () {
+  button.addEventListener("click", function () {
 
-      console.log(
-        "[TRUST COIN] Telegram button clicked"
+    console.log("[TRUST COIN] Telegram button clicked");
+
+    if (
+      !leadSent &&
+      typeof window.fbq === "function"
+    ) {
+
+      leadSent = true;
+
+      window.fbq(
+        "track",
+        "Lead",
+        {
+          content_name: "Trust Coin Telegram",
+          content_category: "telegram"
+        }
       );
 
-      if (
-        !leadSent &&
-        typeof window.fbq === "function"
-      ) {
+      console.log(
+        "[META PIXEL] Lead sent: 1413695077434129"
+      );
 
-        leadSent = true;
+    } else if (
+      typeof window.fbq !== "function"
+    ) {
 
-        window.fbq(
-          "track",
-          "Lead",
-          {
-            content_name:
-              "Trust Coin Telegram",
+      console.warn(
+        "[META PIXEL] fbq is not available"
+      );
 
-            content_category:
-              "telegram"
-          }
-        );
-
-        console.log(
-          "[META PIXEL] Lead sent: 1413695077434129"
-        );
-
-      } else if (
-        typeof window.fbq !== "function"
-      ) {
-
-        console.warn(
-          "[META PIXEL] fbq is not available"
-        );
-
-      }
-
-    },
-    {
-      capture: false,
-      passive: true
     }
-  );
+
+  }, {
+    capture: false,
+    passive: true
+  });
 
   console.log(
     "[TRUST COIN] Landing initialized"
@@ -518,31 +470,40 @@ const page = `<!doctype html>
   );
 
 })();
-
 </script>
 
 </body>
 </html>`;
 
 
-app.get("/", (req, res) => {
+/*
+ * Cloudflare Worker
+ */
+export default {
+  async fetch(request) {
+    const url = new URL(request.url);
 
-  res
-    .status(200)
-    .type("html")
-    .send(page);
+    if (url.pathname === "/") {
+      return new Response(page, {
+        status: 200,
+        headers: {
+          "content-type": "text/html; charset=UTF-8",
+          "cache-control": "no-cache"
+        }
+      });
+    }
 
-});
+    if (url.pathname === "/favicon.ico") {
+      return new Response(null, {
+        status: 204
+      });
+    }
 
-
-app.listen(
-  PORT,
-  "0.0.0.0",
-  () => {
-
-    console.log(
-      "Trust Coin landing started on port " + PORT
-    );
-
+    return new Response("Not Found", {
+      status: 404,
+      headers: {
+        "content-type": "text/plain; charset=UTF-8"
+      }
+    });
   }
-);
+};
